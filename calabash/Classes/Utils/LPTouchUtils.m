@@ -183,8 +183,9 @@ static NSString* lp_deviceName()
         UIWindow *window = [self windowForView:view];
         if (window)
         {
-            bounds = [window convertRect:view.bounds fromView:view];
-            bounds = [frontWindow convertRect:bounds fromWindow:window];
+            //bounds = [window convertRect:view.bounds fromView:view];
+            //bounds = [frontWindow convertRect:bounds fromWindow:window];
+            bounds = [[UIApplication sharedApplication].delegate.window convertRect:view.frame fromView:view.superview];
         }
         else
         { ///not sure if this could even happen...
